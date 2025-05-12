@@ -51,3 +51,4 @@ packages/
 ehthumbs.db
 Icon?
 Thumbs.db
+*.pubxml
