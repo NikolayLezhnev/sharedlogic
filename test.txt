@@ -1,0 +1,15 @@
+f4262ef7-2dd5-430e-880b-d1859dcfbfd9
+
+{
+  "commandType": "MoveCommandData",
+  "commandData": {
+    "from": {
+      "x": 1,
+      "y": 1
+    },
+    "to": {
+      "x": 2,
+      "y": 2
+    }
+  }
+}

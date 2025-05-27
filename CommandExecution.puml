@@ -1,0 +1,46 @@
+@startuml
+actor Player
+box "Client (Unity)"
+participant UnityClient
+end box
+
+box "SharedLogic (client and server)"
+participant GameCommandProcessor
+end box
+
+box "SharedLogicServer (server-only)"
+participant CommandController
+participant UserProfileRepository
+end box
+
+== Client-side execution ==
+
+Player -> UnityClient : Click "DropDisc"
+UnityClient -> GameCommandProcessor : ExecuteCommand(UserProfile, DropDiscCommand)
+GameCommandProcessor --> UnityClient : (locally modified User Profile)
+UnityClient -> UnityClient : UserProfile.ComputeHash()
+
+== Sending command to server ==
+UnityClient -> CommandController : POST (userId + DropDiscCommand + clientHash)
+
+== Server-side execution ==
+
+CommandController -> UserProfileRepository : GetOrCreateAsync(userId)
+UserProfileRepository --> CommandController : loaded User Profile
+
+CommandController -> GameCommandProcessor : ExecuteCommand(UserProfile, DropDiscCommand)
+GameCommandProcessor --> CommandController : (server modified User Profile)
+
+CommandController -> CommandController : UserProfile.ComputeHash()
+
+
+';CommandController --> UnityClient : Check hash, return comparison result
+alt UserProfile hashes match
+CommandController -> UserProfileRepository : SaveAsync(profile)
+    CommandController --> UnityClient : 200 OK
+else UserProfile hashes mismatch
+    CommandController --> UnityClient : 400 Bad Request ("Error: hash check mismatch")
+
+end
+
+@enduml

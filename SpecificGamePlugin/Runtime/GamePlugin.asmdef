@@ -1,0 +1,16 @@
+{
+    "name": "GamePlugin",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8e0d35a46fa81bd44a6894ed1cd57261"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

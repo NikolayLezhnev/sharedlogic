@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharedLogic\SharedLogic.csproj" />
+  </ItemGroup>
+
+	<Target Name="PostBuildCopy" AfterTargets="Build">
+		<PropertyGroup>
+			<OutputPluginPath>$(MSBuildProjectDirectory)\..\SharedLogicServer\Plugins</OutputPluginPath>
+			<PluginAssembly>$(OutputPath)$(AssemblyName).dll</PluginAssembly>
+			<PluginSymbols>$(OutputPath)$(AssemblyName).pdb</PluginSymbols>
+			<PluginDeps>$(OutputPath)$(AssemblyName).deps.json</PluginDeps>
+		</PropertyGroup>
+
+		<MakeDir Directories="$(OutputPluginPath)" />
+
+		<Copy SourceFiles="$(PluginAssembly)" DestinationFolder="$(OutputPluginPath)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="$(PluginSymbols)" DestinationFolder="$(OutputPluginPath)" SkipUnchangedFiles="true" Condition="Exists('$(PluginSymbols)')" />
+		<Copy SourceFiles="$(PluginDeps)" DestinationFolder="$(OutputPluginPath)" SkipUnchangedFiles="true" Condition="Exists('$(PluginDeps)')" />
+	</Target>
+
+
+
+
+
+</Project>

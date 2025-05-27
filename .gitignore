@@ -1,0 +1,53 @@
+# Build results (bin, obj, out)
+**/bin/
+**/obj/
+**/out/
+
+# VS Code directories
+.vscode/
+.vscode/*
+.vscode/settings.json
+
+# Rider/JetBrains
+.idea/
+*.sln.iml
+*.user
+.idea/*
+
+# Visual Studio temp files, build results, and
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+*.ncb
+*.sdf
+*.cache
+*.dbmdl
+
+# VSCode workspace settings
+*.code-workspace
+
+# DotCover
+*.dotCover
+
+# NuGet
+*.nupkg
+.nuget/
+packages/
+# Uncomment if you have NuGet packages installed locally
+# *.nupkg
+
+# Others
+*.log
+*.vspscc
+*.vssscc
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+ehthumbs.db
+Icon?
+Thumbs.db

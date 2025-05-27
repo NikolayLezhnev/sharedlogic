@@ -1,0 +1,37 @@
+@startuml
+
+package SharedLogic {
+    class UserProfile
+    interface ICommandData
+    abstract class GameCommandProcessor
+}
+
+package SpecificGamePlugin {
+    class ConnectFourProfile {
+        +Board : CellState[,]
+        +Result : GameResult
+        +Seed : int 
+        +VictoryCount : int 
+        +DefeatCount : int 
+    }
+
+    class DropDiscCommand {
+        +Column : int 
+    }
+    class NewGameCommand {}
+    class ConnectFourCommandProcessor {
+        +OnVictory : event 
+        +OnDefeat : event 
+        +OnDraw : event 
+        +ConnectFourCommandProcessor()
+        +CreateDefaultProfile(Guid userId) : UserProfile
+    }
+}
+
+SharedLogic.UserProfile <|-- SpecificGamePlugin.ConnectFourProfile  
+SharedLogic.ICommandData <|.. SpecificGamePlugin.NewGameCommand
+SharedLogic.ICommandData <|.. SpecificGamePlugin.DropDiscCommand    
+SharedLogic.GameCommandProcessor <|-- SpecificGamePlugin.ConnectFourCommandProcessor 
+
+@enduml
+

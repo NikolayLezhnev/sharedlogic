@@ -1,0 +1,7 @@
+<Project>
+	<PropertyGroup>
+		<!-- Уводим bin/ и obj/ из Unity-доступной области -->
+		<BaseOutputPath>..\BuildOutput\$(MSBuildProjectName)\bin\</BaseOutputPath>
+		<BaseIntermediateOutputPath>..\BuildOutput\$(MSBuildProjectName)\obj\</BaseIntermediateOutputPath>
+	</PropertyGroup>
+</Project>

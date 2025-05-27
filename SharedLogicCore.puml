@@ -1,0 +1,55 @@
+@startuml
+package SharedLogicCore {
+
+    ' === Abstract base classes ===
+    abstract class UserProfile {
+        +_id : Guid
+        +ComputeHash() : int
+    }
+
+    ' === Interfaces ===
+    interface ICommandData
+
+    ' === Data Transfer Object ===
+    class ExecuteCommandRequestDTO {
+        +CommandType : string
+        +CommandData : object
+        +StateHash : int
+    }
+
+    ' === Core command processor ===
+    abstract class GameCommandProcessor {
+        -_handlers : Dictionary<Type, CommandHandler>
+        +CreateDefaultProfile(Guid userId) : UserProfile
+        +ExecuteCommand(UserProfile profile, ICommandData command) : void        
+        #RegisterHandler<TProfile, TCommand>(handler) : void
+    }
+
+    ' === Dependencies / Relationships ===
+    UserProfile <.. GameCommandProcessor : uses
+    ICommandData <.. GameCommandProcessor : uses
+    ICommandData <|.. ExecuteCommandRequestDTO : contains
+}
+
+note top of ICommandData
+Implemented in each game plugin for every possible
+user action.
+end note
+
+note bottom of GameCommandProcessor
+    The central engine for registering and executing game commands.
+    Extended for each game (e.g., ConnectFourCommandProcessor).
+end note
+
+note top of UserProfile
+    Abstract user profile, extended in each game plugin.
+end note
+
+note bottom of ExecuteCommandRequestDTO
+Used to send a message from client to server.
+In order to correct deserialization we need field CommandType.
+StateHash we use to ensure that UserProfile is in the same state
+after executing command on client and server. 
+end note
+
+@enduml

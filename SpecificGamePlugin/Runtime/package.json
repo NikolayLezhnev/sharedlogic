@@ -1,0 +1,12 @@
+{
+  "name": "com.nlezhnev.gameplugin",
+  "version": "1.0.0",
+  "displayName": "Game Plugin",
+  "description": "Specific game plugin logic.",
+  "unity": "2021.3",
+  "author": { "name": "You" },
+  "exclude": [
+    "bin/**",
+    "obj/**"
+  ]
+}
