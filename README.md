@@ -4,7 +4,7 @@
 
 SharedLogic is an example of a hybrid client-server architecture for games, where player commands are executed instantly on the client for immediate feedback, but are always replayed on the server for verification. This approach protects against cheating, saves server resources, and speeds up development. All game rules and commands are implemented once and used both on the client (Unity) and the server.
 
-> 💡 You can find a more detailed explanation in the [article](docs/index.md).
+> 💡 You can find a more detailed explanation in the [article](https://nikolaylezhnev.github.io/sharedlogic/).
 ## Solution Structure
 
 - **SharedLogic** — Core library: defines base interfaces, command handlers, and the user profile.
@@ -110,7 +110,7 @@ If everything is set up correctly, the Unity client will connect to the server, 
 
 ### The alternative way (submodule)
 You can connect the SharedLogic library (or your fork of it) to multiple projects as a submodule, making it easy to reuse and update in all of them.
-[Learn how to connect the library as a submodule →](docs/submodule.md)
+[Learn how to connect the library as a submodule →](https://nikolaylezhnev.github.io/sharedlogic/submodule)
 
 ## Useful Links
 
