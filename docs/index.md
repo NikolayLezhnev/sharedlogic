@@ -265,7 +265,7 @@ Even a developer with little experience can write this code—one, instead of tw
 Let's now move from examining a practical example to discussing the implementation details of the Shared Logic system as a whole.
 
 Some readers may find it more convenient to explore the source code directly before diving into the detailed explanation below.  
-[🔗 View the full source code on GitHub](https://github.com/NikolayLezhnev/sharedlogic)
+[🔗 View the full source code on GitHub](https://github.com/NikolayLezhnev/sharedlogic/tree/article)
 
 Our system consists of several separate modules, each a standalone project within a .NET solution and performing a well-defined role:
 
@@ -538,5 +538,8 @@ The server confirms every player action by checking the state, and any attempt t
 If you’d like to adopt this approach, I’ll be happy to share my experience, discuss details, or consult with your team.  
 Feel free to reach out — I’m always open to collaboration!
 
-[🔗 Full source code and implementation on GitHub](https://github.com/NikolayLezhnev/sharedlogic)
+[🔗 Full source code and implementation on GitHub](https://github.com/NikolayLezhnev/sharedlogic/tree/article)
 
+**Contact:**  
+[LinkedIn: nlezhnev](https://www.linkedin.com/in/nlezhnev/)  
+Telegram: [@nikolaylezhnev](https://t.me/nikolaylezhnev)
