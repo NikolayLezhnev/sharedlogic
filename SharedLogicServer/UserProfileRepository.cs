@@ -88,6 +88,7 @@ public class UserProfileRepository : IDisposable
             var doc = profile.ToBsonDocument();
             await _collection.ReplaceOneAsync(filter, doc, new ReplaceOptions { IsUpsert = true });
             _lastWriteTicks.TryRemove(userId, out _);
+            _storage.TryRemove(userId, out _);
         }
     }
 }
