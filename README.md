@@ -1,8 +1,8 @@
-# Shared Logic Library
+# SharedLogic.Net
 
 ## Introduction
 
-SharedLogic is an example of a hybrid client-server architecture for games, where player commands are executed instantly on the client for immediate feedback, but are always replayed on the server for verification. This approach protects against cheating, saves server resources, and speeds up development. All game rules and commands are implemented once and used both on the client (Unity) and the server.
+SharedLogic.Net is an example of a hybrid client-server architecture for games, where player commands are executed instantly on the client for immediate feedback, but are always replayed on the server for verification. This approach protects against cheating, saves server resources, and speeds up development. All game rules and commands are implemented once and used both on the client (Unity) and the server.
 
 > 💡 You can find a more detailed explanation in the [article](https://nikolaylezhnev.github.io/sharedlogic/).
 ## Solution Structure
@@ -103,13 +103,13 @@ If everything is set up correctly, the Unity client will connect to the server, 
 
 ---
 
-## Integrating SharedLogic with Your Existing Project
+## Integrating SharedLogic.Net with Your Existing Project
 
 ### The simplest way (copy) 
 **Create fork or copy of this repository**, modify **/UnityProject** and **/GamePlugin**  for your project needs.  
 
 ### The alternative way (submodule)
-You can connect the SharedLogic library (or your fork of it) to multiple projects as a submodule, making it easy to reuse and update in all of them.
+You can connect the SharedLogic.Net library (or your fork of it) to multiple projects as a submodule, making it easy to reuse and update in all of them.
 [Learn how to connect the library as a submodule →](https://nikolaylezhnev.github.io/sharedlogic/submodule)
 
 ## Useful Links
